@@ -191,7 +191,12 @@ SHOW CREATE TABLE Servicio;
 
 
 ## EJECUCIÓN ACTIVIDAD 05.
-## EJERICICIOS:
-![Imagen de ejericios de la práctica.]()
+## EJERCICIOS:
+![Imagen de ejericios de la práctica.](EVIDENCIAS/Ejericios05.png)
 
-## 1. 
+Estos ejercicios se ejecutarán sobre la Base de Datos HotelPatitas_Practica.
+
+## 1. Agregar una columna correo a la tabla Cliente con tipo VARCHAR(100)
+## 2. Agregar una columna observaciones a la tabla Estancia con tipo TEXT.
+## 3. Modificar la columna peso de Mascota para que sea DECIMAL(5,2).
+## 4. Renombrar la columna telefono de Cliente 
