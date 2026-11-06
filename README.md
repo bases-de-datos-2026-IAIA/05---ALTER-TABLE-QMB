@@ -177,6 +177,16 @@ REFERENCES Cliente(id_cliente);
 Código en MySQL:
 ```
 
+DESCRIBE Cliente;
+DESCRIBE Mascota;
+DESCRIBE Servicio;
+DESCRIBE Estancia;
+DESCRIBE EstanciaServicio;
+SHOW CREATE TABLE Mascota;
+SHOW CREATE TABLE EstanciaServicio;
+SHOW CREATE TABLE Servicio;
+
+
 ```
 
 
