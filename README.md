@@ -13,7 +13,7 @@ Repositorio para las actividades y prácticas de la unidad de aprendizaje **Base
 05 - ALTER TABLE
 
 
-## EJECUCIÓN DE LA ACTIVIDAD 04 - CREACIÓN DE BASE DE DATOS HOTELPATITAS_PRACTICA
+# ACTIVIDAD 04 - CREACIÓN DE BASE DE DATOS HOTELPATITAS_PRACTICA
 ### 1. CREACIÓN DE UNA NUEVA BASE DE DATOS -> HotelPatitas_Practica BASADA EN LA BASE DE DATOS HotelPatitas.
 Los ejercicios se realizarán sobre esta copia y no sobre la base de datos original.
 Código en MySQL:
@@ -190,13 +190,61 @@ SHOW CREATE TABLE Servicio;
 ```
 
 
-## EJECUCIÓN ACTIVIDAD 05.
-## EJERCICIOS:
+# ACTIVIDAD 05. ALTER TABLE
+### EJERCICIOS:
 ![Imagen de ejericios de la práctica.](EVIDENCIAS/Ejericios05.png)
 
 Estos ejercicios se ejecutarán sobre la Base de Datos HotelPatitas_Practica.
 
-## 1. Agregar una columna correo a la tabla Cliente con tipo VARCHAR(100)
-## 2. Agregar una columna observaciones a la tabla Estancia con tipo TEXT.
-## 3. Modificar la columna peso de Mascota para que sea DECIMAL(5,2).
-## 4. Renombrar la columna telefono de Cliente 
+### 1. Agregar una columna correo a la tabla Cliente con tipo VARCHAR(100)
+Código en MySQL:
+```
+ALTER TABLE Cliente
+ADD COLUMN correo VARCHAR(100);
+
+```
+
+### 2. Agregar una columna observaciones a la tabla Estancia con tipo TEXT.
+Código en MySQL:
+```
+ALTER TABLE Estancia
+ADD COLUMN observaciones TEXT;
+```
+### 3. Modificar la columna peso de Mascota para que sea DECIMAL(5,2).
+Código en MySQL:
+```
+ALTER TABLE Mascota 
+MODIFY COLUMN peso DECIMAL (5,2);
+
+```
+### 4. Renombrar la columna telefono_contacto de Cliente a telefono_principal.
+Código en MySQL:
+```
+ALTER TABLE Cliente
+RENAME COLUMN telefono_contacto TO telefono_principal;
+
+```
+### 5. Agregar una restricción CHECK para validar que peso > 0 en Mascota.
+Código en MySQL:
+```
+ALTER TABLE Mascota
+ADD CONSTRAINT chk_peso CHECK (peso > 0);
+```
+### 6. Agregar una restricción UNIQUE para que el correo de Cliente no se repita.
+Código en MySQL:
+```
+ALTER TABLE Cliente
+ADD CONSTRAINT uq_correo
+UNIQUE(correo)
+
+```
+### 7. Mover columna descripcion al final de la tabla.
+Código en MySQL:
+```
+
+```
+
+### COMPROBACIÓN DE CAMBIOS CON DESCRIBE Y SHOW CREATE TABLE
+Código en MySQL:
+```
+```
