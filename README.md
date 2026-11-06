@@ -6,14 +6,14 @@ Repositorio para las actividades y prácticas de la unidad de aprendizaje **Base
 
 - **Nombre:** Querén Mercado Bernardino.
 - **Grupo:** 301 IA IA
-- **Periodo:**
 
 ## Actividades
-04 - CREACIÓN DE BASE DE DATOS HOTELPATITAS_PRACTICA
+04 - CREACIÓN DE BASE DE DATOS HOTELPATITAS_PRACTICA (y ejercicios de la diapositiva sql - ddl.)
+
 05 - ALTER TABLE
 
 
-## EJECUCIÓN DE LA ACTIVIDAD 04
+## EJECUCIÓN DE LA ACTIVIDAD 04 - CREACIÓN DE BASE DE DATOS HOTELPATITAS_PRACTICA
 ### 1. CREACIÓN DE UNA NUEVA BASE DE DATOS -> HotelPatitas_Practica BASADA EN LA BASE DE DATOS HotelPatitas.
 Los ejercicios se realizarán sobre esta copia y no sobre la base de datos original.
 Código en MySQL:
@@ -108,9 +108,76 @@ Código en MySQL:
 ALTER TABLE Servicio
 ADD COLUMN descripcion VARCHAR(150) AFTER nombre;
 ```
-### 8. MODIFICO LAS COLUMNAS.
 
+### 8. MODIFICO LAS COLUMNAS MASCOTA Y SERVICIO.
+Código en MySQL:
+```
+ALTER TABLE Mascota
+MODIFY COLUMN raza VARCHAR(100);
+ALTER TABLE Servicio 
+MODIFY COLUMN descripcion VARCHAR(250) AFTER nombre;
+```
 
+### 9. RENOMBRO LAS COLUMNAS.
+Código en MySQL:
+```
+ALTER TABLE Cliente
+RENAME COLUMN telefono TO telefono_contacto;
+ALTER TABLE Servicio
+CHANGE COLUMN descripcion detalle VARCHAR(300);
+```
+
+### 10. ELIMINO COLUMNAS DE CLIENTE Y MASCOTA.
+Código en MySQL:
+```
+ALTER TABLE Cliente
+DROP COLUMN codigo_externo;
+ALTER TABLE Mascota
+DROP COLUMN color;
+```
+
+## 11. VALIDO LOS DATOS USANDO LA RESTRICCIÓN CHECK
+Código en MySQL:
+```
+ALTER TABLE Mascota
+ADD CONSTRAINT chk_peso CHECK (peso > 0);
+
+ALTER TABLE Servicio 
+ADD CONSTRAINT chk_precio CHECK (precio >= 0);
+
+ALTER TABLE Estancia
+ADD CONSTRAINT chk_fechas CHECK (fecha_salida > fecha_entrada);
+```
+
+## 12. EVITO DUPLICADOS USANDO UNIQUE.
+Código en MySQL:
+```
+ALTER TABLE Servicio 
+ADD CONSTRAINT uq_nombre_servicio UNIQUE (nombre);
+```
+
+## 13. ELIMINO LAS RESTRICCIONES.
+Código en MySQL:
+```
+ALTER TABLE Mascota DROP CHECK chk_peso;
+ALTER TABLE Servicio DROP INDEX uq_nombre_servicio;
+ALTER TABLE Mascota DROP FOREIGN KEY fk_mascota_cliente;
+
+```
+
+## 14. RESTURO LAS CLAVES FORÁNEAS.
+Código en MySQL:
+```
+ALTER TABLE Mascota
+ADD CONSTRAINT fk_mascota_cliente
+FOREIGN KEY (id_cliente)
+REFERENCES Cliente(id_cliente);
+```
+## 15. COMPRUEBO LAS MODIFICACIONES.
+Código en MySQL:
+```
+
+```
 
 
 ## EJECUCIÓN ACTIVIDAD 05.
