@@ -241,10 +241,20 @@ UNIQUE(correo)
 ### 7. Mover columna descripcion al final de la tabla.
 Código en MySQL:
 ```
-
+ALTER TABLE Servicio
+ADD COLUMN descripcion VARCHAR(150) AFTER nombre;
 ```
 
 ### COMPROBACIÓN DE CAMBIOS CON DESCRIBE Y SHOW CREATE TABLE
 Código en MySQL:
 ```
+
+DESCRIBE Cliente;
+DESCRIBE Mascota;
+DESCRIBE Servicio;
+DESCRIBE Estancia;
+DESCRIBE EstanciaServicio;
+SHOW CREATE TABLE Mascota;
+SHOW CREATE TABLE EstanciaServicio;
+SHOW CREATE TABLE Servicio;
 ```
